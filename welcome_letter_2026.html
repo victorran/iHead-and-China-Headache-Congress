@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iHEAD Academy & 2026 China Headache Congress - Xi'an</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1a5490;
+            --secondary-color: #c41230;
+            --accent-color: #d4af37;
+            --text-dark: #2c3e50;
+            --text-light: #ecf0f1;
+            --bg-light: #f8f9fa;
+            --bg-white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.15);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: var(--text-dark);
+            background: var(--bg-light);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .nav-sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 280px;
+            height: 100vh;
+            background: var(--primary-color);
+            color: var(--text-light);
+            overflow-y: auto;
+            z-index: 1000;
+            padding: 2rem 0;
+            transition: var(--transition);
+        }
+
+        .nav-header {
+            padding: 0 1.5rem 1.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 1rem;
+        }
+
+        .nav-header h2 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-header p {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        .nav-menu {
+            list-style: none;
+            padding: 0 1rem;
+        }
+
+        .nav-menu li {
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: var(--text-light);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            background: rgba(255,255,255,0.15);
+            transform: translateX(5px);
+        }
+
+        .nav-menu .nav-section {
+            padding: 0.5rem 1rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            font-size: 0.85rem;
+            margin-top: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-toggle {
+            display: none;
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 1001;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.75rem;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+        }
+
+        .nav-toggle:hover {
+            background: #0d3d66;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 280px;
+            padding: 2rem 4rem;
+            max-width: 1200px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #0d3d66 100%);
+            color: var(--text-light);
+            padding: 4rem 3rem;
+            border-radius: 20px;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212,175,55,0.1) 0%, transparent 70%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+        }
+
+        .hero .dates {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero .location {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.15);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-size: 1rem;
+        }
+
+        /* Sections */
+        .section {
+            background: var(--bg-white);
+            border-radius: 15px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: var(--shadow);
+            scroll-margin-top: 2rem;
+        }
+
+        .section-header {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--accent-color);
+        }
+
+        .section-header h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .card {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.75rem;
+            font-size: 1.2rem;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Images */
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .image-card {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .image-card:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .image-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .image-card .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            padding: 1rem;
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+
+        .image-card:hover .caption {
+            transform: translateY(0);
+        }
+
+        .placeholder-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        /* Tables */
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: var(--bg-white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .schedule-table th,
+        .schedule-table td {
+            padding: 1rem 1.25rem;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .schedule-table th {
+            background: var(--primary-color);
+            color: white;
+            font-weight: 600;
+        }
+
+        .schedule-table tr:hover {
+            background: var(--bg-light);
+        }
+
+        /* Highlights */
+        .highlight-box {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #2c5282 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+        }
+
+        .highlight-box h3 {
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .highlight-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .highlight-list li {
+            padding: 0.75rem 0 0.75rem 2rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* Speakers */
+        .speaker-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .speaker-card {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: var(--transition);
+        }
+
+        .speaker-card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .speaker-card .name {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .speaker-card .title {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Food Section */
+        .food-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: var(--bg-light);
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .food-item:hover {
+            background: white;
+            box-shadow: var(--shadow);
+            transform: translateX(10px);
+        }
+
+        .food-icon {
+            font-size: 2.5rem;
+            flex-shrink: 0;
+        }
+
+        .food-info h4 {
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .food-info p {
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        /* Itinerary */
+        .itinerary-item {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .itinerary-item h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 2rem 3rem;
+            border-radius: 15px;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .footer p {
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+            z-index: 999;
+            font-weight: 600;
+        }
+
+        .back-to-top:hover {
+            background: #0d3d66;
+            transform: translateY(-3px);
+        }
+
+        /* Image Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 12px;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Scroll Progress */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: var(--accent-color);
+            z-index: 1002;
+            transition: width 0.1s;
+        }
+
+        /* Search */
+        .search-box {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 50px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(26,84,144,0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .nav-sidebar {
+                transform: translateX(-100%);
+            }
+
+            .nav-sidebar.active {
+                transform: translateX(0);
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 1.5rem 2rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                padding: 1rem;
+            }
+
+            .hero {
+                padding: 2rem 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section {
+                padding: 1.5rem;
+            }
+
+            .card-grid,
+            .speaker-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .schedule-table {
+                font-size: 0.85rem;
+            }
+
+            .schedule-table th,
+            .schedule-table td {
+                padding: 0.75rem;
+            }
+
+            .food-item {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-in {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        /* Print Styles */
+        @media print {
+            .nav-sidebar,
+            .nav-toggle,
+            .back-to-top,
+            .progress-bar {
+                display: none;
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .section {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Navigation Toggle -->
+    <button class="nav-toggle" onclick="toggleNav()">
+        ☰
+    </button>
+
+    <!-- Navigation Sidebar -->
+    <nav class="nav-sidebar" id="navSidebar">
+        <div class="nav-header">
+            <h2>🏛️ Welcome Letter</h2>
+            <p>iHEAD Academy & 2026 CHC</p>
+            <p style="font-size: 0.75rem; margin-top: 0.5rem;">May 14–17, 2026 | Xi'an</p>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="#welcome" class="active">Welcome</a></li>
+            <li><a href="#hospitals">Host Institutions</a></li>
+            <li><a href="#programme">Programme Overview</a></li>
+            <li><a href="#ihead">iHEAD Academy</a></li>
+            <li class="nav-section">CHC 2026</li>
+            <li><a href="#chc-highlights">Congress Highlights</a></li>
+            <li><a href="#chairs">Congress Leadership</a></li>
+            <li><a href="#speakers">International Speakers</a></li>
+            <li class="nav-section">Xi'an Guide</li>
+            <li><a href="#xian-intro">About Xi'an</a></li>
+            <li><a href="#landmarks">Landmarks</a></li>
+            <li><a href="#cuisine">Local Cuisine</a></li>
+            <li><a href="#itinerary">Itinerary Ideas</a></li>
+            <li><a href="#practical">Practical Info</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero" id="welcome">
+            <h1>Welcome to Xi'an</h1>
+            <p class="subtitle">iHEAD Academy & 2026 China Headache Congress</p>
+            <p class="dates">May 14–17, 2026</p>
+            <div class="location">
+                <span>📍</span>
+                <span>Jinjiang International Hotel, Xi'an, China</span>
+            </div>
+        </section>
+
+        <!-- Welcome Message -->
+        <section class="section">
+            <div class="section-header">
+                <h2>Dear Colleague,</h2>
+            </div>
+            <p>On behalf of the Organizing Committees of the iHEAD Academy and the 2026 China Headache Congress (CHC), it is our great honor and pleasure to extend to you a warm welcome to Xi'an — the ancient imperial capital of China.</p>
+            
+            <p style="margin-top: 1rem;">This year marks a historic milestone: for the first time, the International Headache Society's iHEAD Academy will be held in China, co-located with the annual China Headache Congress, in partnership with the International Headache Society (IHS) and the Chinese Headache Society (CHS). Together, these two premier meetings will bring together the world's leading headache experts and a new generation of clinicians for an unparalleled programme of education, dialogue, and discovery.</p>
+            
+            <p style="margin-top: 1rem;">We are delighted to have you with us and look forward to making this a truly memorable academic and cultural experience.</p>
+        </section>
+
+        <!-- Host Institutions -->
+        <section class="section" id="hospitals">
+            <div class="section-header">
+                <h2>Our Host Institutions</h2>
+                <p>Two premier medical centers in China</p>
+            </div>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Chinese PLA General Hospital (PLAGH)</h3>
+                    <p><strong>Founded:</strong> 1953</p>
+                    <p><strong>Ranking:</strong> Among TOP 3 in China</p>
+                    <p>PLA General Hospital is a large modern comprehensive hospital integrating medical care, healthcare, education, scientific research, prevention, rehabilitation, NBC defense, and medical rescue.</p>
+                    <p style="margin-top: 0.75rem;"><strong>Neurology:</strong> 450 inpatient beds, 5 nationally accredited clinical pharmacology bases</p>
+                    <p><strong>Headache Centre:</strong> International Headache Centre certified by IHS</p>
+                </div>
+                
+                <div class="card">
+                    <h3>First Affiliated Hospital of Xi'an Jiaotong University</h3>
+                    <p><strong>Ranking:</strong> 2nd in Northwest China</p>
+                    <p>One of the largest neurology departments in Northwest China, with strong clinical and research capabilities in headache, stroke, epilepsy, and movement disorders.</p>
+                    <p style="margin-top: 0.75rem;"><strong>Headache Leadership:</strong> Lead unit of the Northwest China Head and Face Pain Alliance</p>
+                    <p><strong>Clinical Volume:</strong> 110,000+ outpatient visits per year</p>
+                    <p><strong>Research:</strong> Active programmes on migraine burden, pharmacogenomics, and digital health</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Programme Overview -->
+        <section class="section" id="programme">
+            <div class="section-header">
+                <h2>Conference Programme at a Glance</h2>
+                <p>Four days of intensive education and scientific exchange</p>
+            </div>
+            
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Programme</th>
+                        <th>Venue</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>May 14 (Thu)</strong></td>
+                        <td>iHEAD Academy — Half-day educational programme<br><small>International Faculty Symposium, Welcome Reception & Dinner</small></td>
+                        <td>First Affiliated Hospital of Xi'an Jiaotong University</td>
+                    </tr>
+                    <tr>
+                        <td><strong>May 15 (Fri)</strong></td>
+                        <td>iHEAD Academy — Full-day educational programme<br><small>International Faculty Symposium</small></td>
+                        <td>First Affiliated Hospital of Xi'an Jiaotong University</td>
+                    </tr>
+                    <tr>
+                        <td><strong>May 16 (Sat)</strong></td>
+                        <td>2026 China Headache Congress — Day 1<br><small>Opening Ceremony, 8 Parallel Symposia</small></td>
+                        <td>Jinjiang International Hotel</td>
+                    </tr>
+                    <tr>
+                        <td><strong>May 17 (Sun)</strong></td>
+                        <td>2026 China Headache Congress — Day 2<br><small>Specialist Workshops, Young Investigator Forum, Closing Ceremony</small></td>
+                        <td>Jinjiang International Hotel</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- iHEAD Academy -->
+        <section class="section" id="ihead">
+            <div class="section-header">
+                <h2>iHEAD Academy — Educational Programme</h2>
+                <p>Carefully curated full programme for two rewarding days</p>
+            </div>
+            
+            <div class="highlight-box">
+                <h3>Programme Highlights</h3>
+                <ul class="highlight-list">
+                    <li><strong>Keynote Lectures:</strong> Prof. Jes Olesen (history of headache medicine) & Prof. Peter J. Goadsby (ICHD-4 evolution)</li>
+                    <li><strong>Interactive Workshops:</strong> Four parallel small-group workshops in two rounds — scientific communication, case presentations, paper writing & reviewing, poster/graphical abstract design</li>
+                    <li><strong>Clinical Management:</strong> Prof. Patricia Pozo-Rosich on timely migraine treatment + latest IHS Practice Guidelines</li>
+                    <li><strong>Global Perspectives:</strong> Four specialists from Europe, Brazil, Russia, and China share clinic organisation experiences</li>
+                    <li><strong>Academic Debate:</strong> "Triptans First, Gepants Second?" — live debate with audience voting</li>
+                    <li><strong>Best Papers 2025–26:</strong> Co-chaired by Profs. Goadsby & Li — critical appraisal of selected research papers</li>
+                    <li><strong>Career & Clinical Practice:</strong> Prof. Mario Peres on career building, Prof. Jiying Zhou on rating scales & patient management</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- CHC 2026 Highlights -->
+        <section class="section" id="chc-highlights">
+            <div class="section-header">
+                <h2>2026 China Headache Congress Highlights</h2>
+                <p>May 16–17, 2026 | Jinjiang International Convention Hotel</p>
+            </div>
+            
+            <p style="margin-bottom: 1.5rem;">The China Headache Congress is the largest and longest-standing headache academic meeting in China, annually attracting more than 1,000 physicians and researchers. This year's collaboration with IHS marks a significant milestone.</p>
+
+            <h3 style="color: var(--primary-color); margin-bottom: 1rem;">Plenary Sessions (May 16 Morning)</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Headache Care: Building and Prospects</h4>
+                    <p>Featuring Prof. Jes Olesen on future directions in headache research</p>
+                </div>
+                <div class="card">
+                    <h4>Non-Pharmacological Therapies</h4>
+                    <p>Prof. Peter Goadsby on neuromodulation therapy for migraine</p>
+                </div>
+                <div class="card">
+                    <h4>Global Treatment Perspectives</h4>
+                    <p>Prof. Mario Peres on regional variations and cultural factors</p>
+                </div>
+                <div class="card">
+                    <h4>Pharmacological Advances</h4>
+                    <p>Prof. Patricia Pozo-Rosich on anti-CGRP antibodies real-world evidence</p>
+                </div>
+                <div class="card">
+                    <h4>Migraine Awareness Month</h4>
+                    <p>Special session initiating China's migraine awareness campaign</p>
+                </div>
+            </div>
+
+            <h3 style="color: var(--primary-color); margin: 2rem 0 1rem;">Afternoon Parallel Symposia (May 16 PM) — Eight Concurrent Tracks</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Track 1: Migraine Mechanisms</h4>
+                    <p>Latest research on pathophysiology, imaging, and biomarkers</p>
+                </div>
+                <div class="card">
+                    <h4>Track 2: Interdisciplinary Care</h4>
+                    <p>Cross-specialty approaches to complex headache disorders</p>
+                </div>
+                <div class="card">
+                    <h4>Track 3: Cluster & TACs</h4>
+                    <p>Focused on trigeminal autonomic cephalalgias management</p>
+                </div>
+                <div class="card">
+                    <h4>Track 4: Non-Pharmacological MDT</h4>
+                    <p>Multidisciplinary therapy approaches</p>
+                </div>
+                <div class="card">
+                    <h4>Track 5: Global Perspective</h4>
+                    <p>International guidelines and treatment pathways</p>
+                </div>
+                <div class="card">
+                    <h4>Track 6: Special Populations</h4>
+                    <p>Pediatric, geriatric, and special population considerations</p>
+                </div>
+                <div class="card">
+                    <h4>Track 7: Comorbidities</h4>
+                    <p>Addressing co-occurring conditions in migraine</p>
+                </div>
+                <div class="card">
+                    <h4>Track 8: Intracranial Pressure</h4>
+                    <p>IIH and pressure-related disorders</p>
+                </div>
+            </div>
+
+            <h3 style="color: var(--primary-color); margin: 2rem 0 1rem;">Morning Sessions (May 17 AM)</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Track 9: Prevention & Control System</h4>
+                    <p>National consensus on quality control, award ceremony</p>
+                </div>
+                <div class="card">
+                    <h4>Track 10: Northwest 10th Anniversary</h4>
+                    <p>Decade of headache medicine advancement, special sessions on IIH & EEG</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Congress Chairpersons -->
+        <section class="section" id="chairs">
+            <div class="section-header">
+                <h2>Congress Leadership</h2>
+                <p>Distinguished Chairs and International Faculty</p>
+            </div>
+
+            <h3 style="color: var(--primary-color); margin: 1.5rem 0 1rem;">Congress Co-Chairs</h3>
+            <div class="speaker-grid">
+                <div class="speaker-card">
+                    <div class="name">Prof. Shengyuan Yu (于生元)</div>
+                    <div class="title">Congress Co-Chair</div>
+                    <div class="title" style="margin-top: 0.5rem;">China</div>
+                    <p style="margin-top: 0.75rem; font-size: 0.85rem;">
+                        <strong>Director</strong>, International Headache Center, Chinese PLA General Hospital (First Medical Center)<br>
+                        <strong>Chairman</strong>, Neurologist Branch, Chinese Medical Doctor Association<br>
+                        <strong>Vice Chair & Secretary-General</strong>, Headache and Sensory Disorders Committee, Chinese Research Hospital Association<br>
+                        <strong>WHO "Lifting the Burden"</strong> Project Leader for China Region
+                    </p>
+                    <p style="margin-top: 0.5rem; font-size: 0.8rem; color: #666;">
+                        200+ SCI papers as first/corresponding author<br>
+                        Multiple national awards for medical achievements
+                    </p>
+                </div>
+
+                <div class="speaker-card">
+                    <div class="name">Prof. Mario F P Peres (马里奥·佩雷斯)</div>
+                    <div class="title">Congress Co-Chair & IHS President</div>
+                    <div class="title" style="margin-top: 0.5rem;">Brazil</div>
+                    <p style="margin-top: 0.75rem; font-size: 0.85rem;">
+                        <strong>President</strong>, International Headache Society (IHS)<br>
+                        <strong>Founder</strong>, São Paulo Headache Center<br>
+                        <strong>Director</strong>, Headache Medicine Fellowship Program, Albert Einstein Hospital<br>
+                        <strong>Chairman</strong>, Brazilian Headache Society (ABRACES)
+                    </p>
+                    <p style="margin-top: 0.5rem; font-size: 0.8rem; color: #666;">
+                        130+ peer-reviewed papers<br>
+                        E-learning programs and mobile apps with 10M+ annual views
+                    </p>
+                </div>
+            </div>
+
+            <h3 style="color: var(--primary-color); margin: 1.5rem 0 1rem;">Executive Chairs</h3>
+            <div class="speaker-grid">
+                <div class="speaker-card">
+                    <div class="name">Prof. Zhao Dong (董钊)</div>
+                    <div class="title">Executive Chair</div>
+                    <div class="title" style="margin-top: 0.5rem;">China</div>
+                    <p style="margin-top: 0.75rem; font-size: 0.85rem;">
+                        <strong>Director</strong>, Department of Neurology, Chinese PLA General Hospital (First Medical Center)<br>
+                        <strong>Chief Scientist</strong>, National Key R&D Program<br>
+                        <strong>Standing Committee Member</strong> & Headache Disorders Group Leader, Chinese Medical Doctor Association<br>
+                        <strong>Vice Chair & Secretary-General</strong>, Chinese Research Hospital Association Headache Committee
+                    </p>
+                    <p style="margin-top: 0.5rem; font-size: 0.8rem; color: #666;">
+                        Led China's first national major migraine research project<br>
+                        12 national research projects<br>
+                        14 clinical guidelines and expert consensus documents<br>
+                        60+ SCI-indexed papers
+                    </p>
+                </div>
+
+                <div class="speaker-card">
+                    <div class="name">Prof. Guogang Luo (罗国刚)</div>
+                    <div class="title">Executive Chair</div>
+                    <div class="title" style="margin-top: 0.5rem;">China</div>
+                    <p style="margin-top: 0.75rem; font-size: 0.85rem;">
+                        <strong>Vice Director & Chief Physician</strong>, Department of Neurology, First Affiliated Hospital of Xi'an Jiaotong University<br>
+                        <strong>PhD Supervisor</strong><br>
+                        <strong>Visiting Scholar</strong>, Lund University, Sweden (2003-2004)<br>
+                        Leader, Northwest China Head and Face Pain Alliance
+                    </p>
+                    <p style="margin-top: 0.5rem; font-size: 0.8rem; color: #666;">
+                        Research Focus: Cerebrovascular disease & Vascular headache<br>
+                        Xi'an Science & Technology Progress First Prize<br>
+                        SCI papers in Neurology (IF=8.771) and other journals<br>
+                        6 guidelines/expert consensus contributions
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- International Speakers -->
+        <section class="section" id="speakers">
+            <div class="section-header">
+                <h2>International Faculty</h2>
+                <p>World-renowned experts joining us in Xi'an</p>
+            </div>
+
+            <h3 style="color: var(--primary-color); margin: 1rem 0 1rem;">International Faculty</h3>
+            <div class="speaker-grid">
+                <div class="speaker-card">
+                    <div class="name">Prof. Jes Olesen</div>
+                    <div class="title">Denmark</div>
+                    <p style="margin-top: 0.5rem; font-size: 0.85rem;">
+                        <strong>Founder</strong>, International Headache Society<br>
+                        Glostrup Hospital, University of Copenhagen
+                    </p>
+                    <p style="margin-top: 0.5rem; font-size: 0.8rem; color: #666;">
+                        Topic: History of Headache Medicine & IHS
+                    </p>
+                </div>
+                <div class="speaker-card">
+                    <div class="name">Prof. Peter J. Goadsby</div>
+                    <div class="title">United Kingdom</div>
+                    <p style="margin-top: 0.5rem; font-size: 0.85rem;">
+                        <strong>Editor-in-Chief</strong>, ICHD-4<br>
+                        NIHR-Wellcome Trust King's Clinical Research Facility, King's College London
+                    </p>
+                    <p style="margin-top: 0.5rem; font-size: 0.8rem; color: #666;">
+                        Topic: ICHD-4 Evolution & Best Papers 2025-26
+                    </p>
+                </div>
+                <div class="speaker-card">
+                    <div class="name">Prof. Rami Burstein</div>
+                    <div class="title">United States</div>
+                    <p style="margin-top: 0.5rem; font-size: 0.85rem;">
+                        <strong>Professor</strong>, Harvard Medical School
+                    </p>
+                    <p style="margin-top: 0.5rem; font-size: 0.8rem; color: #666;">
+                        Topic: Is Migraine Central or Peripheral?
+                    </p>
+                </div>
+                <div class="speaker-card">
+                    <div class="name">Prof. Patricia Pozo-Rosich</div>
+                    <div class="title">Spain</div>
+                    <p style="margin-top: 0.5rem; font-size: 0.85rem;">
+                        <strong>Vall d'Hebron University Hospital</strong>
+                    </p>
+                    <p style="margin-top: 0.5rem; font-size: 0.8rem; color: #666;">
+                        Topic: Timely Treatment of Migraine & IHS Guidelines
+                    </p>
+                </div>
+                <div class="speaker-card">
+                    <div class="name">Prof. Simona Sacco</div>
+                    <div class="title">Italy</div>
+                    <p style="margin-top: 0.5rem; font-size: 0.85rem;">
+                        Università dell'Aquila
+                    </p>
+                    <p style="margin-top: 0.5rem; font-size: 0.8rem; color: #666;">
+                        Topic: Common Pitfalls in Headache Research
+                    </p>
+                </div>
+                <div class="speaker-card">
+                    <div class="name">Prof. Gianluca Coppola</div>
+                    <div class="title">Italy</div>
+                    <p style="margin-top: 0.5rem; font-size: 0.85rem;">
+                        Sapienza University of Rome
+                    </p>
+                    <p style="margin-top: 0.5rem; font-size: 0.8rem; color: #666;">
+                        Topic: Neurophysiology Insights in Migraine Treatments
+                    </p>
+                </div>
+                <div class="speaker-card">
+                    <div class="name">Dr. Marcio Nattan Souza</div>
+                    <div class="title">Brazil</div>
+                    <p style="margin-top: 0.5rem; font-size: 0.85rem;">
+                        University of São Paulo
+                    </p>
+                    <p style="margin-top: 0.5rem; font-size: 0.8rem; color: #666;">
+                        Workshop: Patient Cases
+                    </p>
+                </div>
+                <div class="speaker-card">
+                    <div class="name">Dr. Hsiangkuo Yuan</div>
+                    <div class="title">United States</div>
+                    <p style="margin-top: 0.5rem; font-size: 0.85rem;">
+                        Thomas Jefferson University Hospital
+                    </p>
+                    <p style="margin-top: 0.5rem; font-size: 0.8rem; color: #666;">
+                        Workshop: How to Write and Review Papers
+                    </p>
+                </div>
+                <div class="speaker-card">
+                    <div class="name">Dr. Francesca Puledda</div>
+                    <div class="title">United Kingdom</div>
+                    <p style="margin-top: 0.5rem; font-size: 0.85rem;">
+                        King's College London
+                    </p>
+                    <p style="margin-top: 0.5rem; font-size: 0.8rem; color: #666;">
+                        Workshop: Poster & Graphical Abstract Design
+                    </p>
+                </div>
+                <div class="speaker-card">
+                    <div class="name">Prof. Elena R. Lebedeva</div>
+                    <div class="title">Russia</div>
+                    <p style="margin-top: 0.5rem; font-size: 0.85rem;">
+                        Ural State Medical University
+                    </p>
+                    <p style="margin-top: 0.5rem; font-size: 0.8rem; color: #666;">
+                        Topic: European Perspective on Clinic Organization
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Xi'an -->
+        <section class="section" id="xian-intro">
+            <div class="section-header">
+                <h2>Welcome to Xi'an — Ancient Capital of Thirteen Dynasties</h2>
+                <p>A cultural crossroads of East and West for two millennia</p>
+            </div>
+            
+            <p style="margin-bottom: 1.5rem;">Xi'an (西安) is one of the oldest cities in the world and the former capital of ancient China for over 1,100 years across thirteen dynasties — including the magnificent Han and Tang Empires. As the eastern starting point of the ancient Silk Road, Xi'an has been a cultural crossroads of East and West for more than two millennia. Today it is a vibrant metropolis of 13 million people that seamlessly weaves its extraordinary heritage into modern urban life.</p>
+            
+            <div class="image-grid">
+                <div class="image-card" onclick="openImageModal('D:/Desktop/welcome_images/Traditional_Xi_an_cuisine__Yan_2026-04-06T03-18-33.png')">
+                    <img src="D:/Desktop/welcome_images/Traditional_Xi_an_cuisine__Yan_2026-04-06T03-18-33.png" alt="Yangrou Paomo - Traditional Xi'an Lamb Broth with Flatbread">
+                    <div class="caption">Yangrou Paomo — Xi'an's signature dish</div>
+                </div>
+                <div class="image-card">
+                    <div class="placeholder-image">🍜 Roujiamo</div>
+                    <div class="caption">Chinese hamburger with spiced pork</div>
+                </div>
+                <div class="image-card">
+                    <div class="placeholder-image">🍜 Biang Biang Noodles</div>
+                    <div class="caption">Hand-pulled belt noodles</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Landmarks -->
+        <section class="section" id="landmarks">
+            <div class="section-header">
+                <h2>Iconic Landmarks You Should Not Miss</h2>
+                <p>Explore Xi'an's rich heritage</p>
+            </div>
+            
+            <div class="image-grid">
+                <div class="image-card">
+                    <div class="placeholder-image">⚔️ Terracotta Army</div>
+                    <div class="caption">8,000+ warriors, UNESCO World Heritage</div>
+                </div>
+                <div class="image-card">
+                    <div class="placeholder-image">🚴 City Wall</div>
+                    <div class="caption">13.7 km cycling circuit, Ming Dynasty</div>
+                </div>
+                <div class="image-card">
+                    <div class="placeholder-image">🏯 Big Wild Goose Pagoda</div>
+                    <div class="caption">652 AD, Buddhist scriptures, fountain shows</div>
+                </div>
+                <div class="image-card">
+                    <div class="placeholder-image">🏛️ History Museum</div>
+                    <div class="caption">170,000+ artifacts, 1 million years</div>
+                </div>
+                <div class="image-card">
+                    <div class="placeholder-image">🍢 Muslim Quarter</div>
+                    <div class="caption">Food stalls, artisan shops, heritage</div>
+                </div>
+                <div class="image-card">
+                    <div class="placeholder-image">🔔 Bell & Drum Towers</div>
+                    <div class="caption">Ancient daily schedule, night illumination</div>
+                </div>
+            </div>
+
+            <div style="margin-top: 2rem;">
+                <h3 style="color: var(--primary-color); margin-bottom: 1rem;">Brief Descriptions</h3>
+                <div class="card-grid">
+                    <div class="card">
+                        <h4>Terracotta Army (秦始皇兵马俑)</h4>
+                        <p>One of the greatest archaeological finds of the 20th century — 8,000+ life-sized warriors protecting Emperor Qin's tomb. A UNESCO World Heritage Site ~45 min from the city.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Xi'an City Wall (西安城墙)</h4>
+                        <p>The best-preserved ancient city wall in China, built in the Ming Dynasty (1370 AD). Rent a bicycle and cycle the full 13.7 km circuit for a breathtaking panorama.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Big Wild Goose Pagoda (大雁塔)</h4>
+                        <p>A Buddhist pagoda built in 652 AD to house sacred scriptures brought from India by monk Xuanzang. The adjacent Tang Paradise park hosts spectacular nightly fountain shows.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Local Cuisine -->
+        <section class="section" id="cuisine">
+            <div class="section-header">
+                <h2>Shaanxi Cuisine — Must-Try Foods</h2>
+                <p>Experience the authentic flavors of Xi'an</p>
+            </div>
+            
+            <div class="food-item">
+                <div class="food-icon">🍜</div>
+                <div class="food-info">
+                    <h4>Yangrou Paomo (羊肉泡馍)</h4>
+                    <p>Xi'an's signature dish — a rich slow-cooked lamb broth served with hand-crumbled flatbread. A warming experience unique to this city.</p>
+                </div>
+            </div>
+
+            <div class="food-item">
+                <div class="food-icon">🍜</div>
+                <div class="food-info">
+                    <h4>Roujiamo (肉夹馍)</h4>
+                    <p>Often called the "Chinese hamburger" — slow-braised spiced pork in crispy flatbread. Available at every street corner.</p>
+                </div>
+            </div>
+
+            <div class="food-item">
+                <div class="food-icon">🍜</div>
+                <div class="food-info">
+                    <h4>Biang Biang Noodles (biang biang面)</h4>
+                    <p>Xi'an's famous hand-pulled belt noodles, tossed with chilli oil, vinegar, and toppings — the character 'biang' has over 57 strokes.</p>
+                </div>
+            </div>
+
+            <div class="food-item">
+                <div class="food-icon">🍜</div>
+                <div class="food-info">
+                    <h4>Liangpi (凉皮)</h4>
+                    <p>Chilled rice or wheat noodles in a tangy chilli sauce — a refreshing local snack perfect for May.</p>
+                </div>
+            </div>
+
+            <div class="food-item">
+                <div class="food-icon">🥧</div>
+                <div class="food-info">
+                    <h4>Persimmon Cake (黄桂柿子饼)</h4>
+                    <p>A traditional Xi'an dessert made from local persimmons, crispy outside and soft inside.</p>
+                </div>
+            </div>
+
+            <div class="food-item">
+                <div class="food-icon">🥧</div>
+                <div class="food-info">
+                    <h4>Osmanthus Rice Cake (桂花糕)</h4>
+                    <p>A sweet, fragrant pastry infused with osmanthus blossom — a perfect edible souvenir.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Itinerary Ideas -->
+        <section class="section" id="itinerary">
+            <div class="section-header">
+                <h2>Suggested Itineraries</h2>
+                <p>Make the most of your time in Xi'an</p>
+            </div>
+            
+            <div class="itinerary-item">
+                <h4>▶ Morning / Afternoon Option A — Ancient Wonders</h4>
+                <p>Start at Terracotta Army (~45 min by taxi, ¥60). Allow 2–3 hours on-site. Return via Mount Li (Huaqing Palace hot springs) for lunch. Back in the city by evening.</p>
+            </div>
+
+            <div class="itinerary-item">
+                <h4>▶ Morning / Afternoon Option B — City Centre Heritage</h4>
+                <p>Walk from your hotel to the Bell Tower, explore the Muslim Quarter for breakfast, visit the City Wall (cycling recommended). End with tea at a traditional tea house near the Drum Tower.</p>
+            </div>
+
+            <div class="itinerary-item">
+                <h4>▶ Evening Option — Tang Night at Da Ci'en Temple</h4>
+                <p>The Big Wild Goose Pagoda North Square hosts a free water & music show every evening at 21:00. Combine with dinner at a nearby Shaanxi restaurant.</p>
+            </div>
+
+            <div class="itinerary-item">
+                <h4>▶ Full-Day Option — Shaanxi History Museum + Famen Temple</h4>
+                <p>Morning at Shaanxi History Museum (book ahead), afternoon drive to Famen Temple (~120 km, day-trip possible), home to the finger bone relic of the Buddha.</p>
+            </div>
+        </section>
+
+        <!-- Practical Information -->
+        <section class="section" id="practical">
+            <div class="section-header">
+                <h2>Practical Information for International Attendees</h2>
+                <p>Everything you need to know</p>
+            </div>
+            
+            <table class="schedule-table">
+                <tbody>
+                    <tr>
+                        <td><strong>Conference Venue</strong></td>
+                        <td>Jinjiang International Hotel Xi'an (锦江国际大酒店)<br>No. 157 Chang'an South Road, Xi'an, Shaanxi 710061, China</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Getting to Xi'an</strong></td>
+                        <td>Direct flights from most Asian hubs. Xi'an Xianyang International Airport (XIY) is ~40 min by taxi from hotel (¥100–130). Airport express bus to city centre also available (~60 min, ¥30).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>May Weather</strong></td>
+                        <td>Xi'an in May: 16–26°C, generally sunny with occasional light rain. Light layers recommended. Low humidity — a pleasant time to visit.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Currency</strong></td>
+                        <td>Chinese Yuan (CNY/RMB). International credit cards (Visa, Mastercard) widely accepted at hotel. WeChat Pay / Alipay available for street vendors.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Internet</strong></td>
+                        <td>Hotel Wi-Fi provided. For broader internet access, we recommend downloading a VPN before arrival. Local SIM cards available at airport.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Emergency</strong></td>
+                        <td>Medical emergency: 120 | Police: 110 | Fire: 119 | Hospital emergency: directly to conference hotel concierge.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Contact -->
+        <section class="section" id="contact">
+            <div class="section-header">
+                <h2>Contact & Support</h2>
+                <p>We're here to help</p>
+            </div>
+            
+            <div class="card">
+                <h3 style="margin-bottom: 1rem; color: var(--primary-color);">Conference Secretariat — iHEAD Academy & 2026 China Headache Congress</h3>
+                <p>For any assistance related to the conference, visa letters, local transport, accommodation, or programme enquiries, please do not hesitate to contact our Secretariat.</p>
+                <div style="margin-top: 1.5rem;">
+                    <p><strong>📧 Email:</strong> [secretariat@email.com]</p>
+                    <p><strong>📱 WeChat / WhatsApp:</strong> [Contact Number]</p>
+                    <p><strong>🌐 Official website:</strong> [URL]</p>
+                </div>
+                <p style="margin-top: 1rem; color: #666;">We will do our best to respond within 48 hours and will be happy to assist you with any aspect of your visit to China.</p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p><strong>We look forward to welcoming you to Xi'an in May 2026.</strong></p>
+            <p style="margin-top: 0.5rem;">The Organizing Committee<br>iHEAD Academy & 2026 China Headache Congress</p>
+            <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">Department of Neurology, First Medical Center, Chinese PLA General Hospital<br>Department of Neurology, First Affiliated Hospital of Xi'an Jiaotong University</p>
+        </div>
+    </main>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" onclick="scrollToTop()">
+        ↑ Top
+    </button>
+
+    <!-- Image Modal -->
+    <div class="modal" id="imageModal">
+        <button class="modal-close" onclick="closeModal()">×</button>
+        <img class="modal-content" id="modalImage" src="" alt="Enlarged view">
+    </div>
+
+    <script>
+        // Navigation Toggle
+        function toggleNav() {
+            const nav = document.getElementById('navSidebar');
+            nav.classList.toggle('active');
+        }
+
+        // Close nav when clicking outside on mobile
+        document.addEventListener('click', (e) => {
+            const nav = document.getElementById('navSidebar');
+            const toggle = document.querySelector('.nav-toggle');
+            if (window.innerWidth <= 1024 && 
+                !nav.contains(e.target) && 
+                !toggle.contains(e.target) && 
+                nav.classList.contains('active')) {
+                nav.classList.remove('active');
+            }
+        });
+
+        // Active Navigation
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-menu a');
+
+        function setActiveNav() {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // Scroll Progress Bar
+        function updateProgressBar() {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = (scrollTop / docHeight) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+        }
+
+        // Scroll to Top
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+    // Image Modal
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+
+    document.querySelectorAll('.image-card').forEach(card => {
+        card.addEventListener('click', () => {
+            const img = card.querySelector('img');
+            if (img) {
+                modal.classList.add('active');
+                modalImg.src = img.src;
+            }
+        });
+    });
+
+    function openImageModal(src) {
+        modal.classList.add('active');
+        modalImg.src = src;
+    }
+
+        function closeModal() {
+            modal.classList.remove('active');
+        }
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Escape key to close modal
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Smooth Scroll for Navigation
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                const navOffset = window.innerWidth > 1024 ? 280 : 0;
+                const targetPosition = targetSection.offsetTop - navOffset - 20;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+
+                // Close mobile nav after click
+                if (window.innerWidth <= 1024) {
+                    document.getElementById('navSidebar').classList.remove('active');
+                }
+            });
+        });
+
+        // Event Listeners
+        window.addEventListener('scroll', () => {
+            setActiveNav();
+            updateProgressBar();
+        });
+
+        // Initialize
+        setActiveNav();
+        updateProgressBar();
+
+        // Back to Top Button Visibility
+        const backToTopBtn = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTopBtn.style.display = 'block';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
